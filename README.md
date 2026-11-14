@@ -14,3 +14,13 @@ The official Al Jazeera live-page link remains available as a fallback: https://
 - The player has a custom responsive interface and native video element, not a YouTube iframe.
 - This static GitHub Pages test does not proxy or rebroadcast media and has no automatic channel checking.
 - Public routes: `/globewave/`, `/globewave/fr/`, `/globewave/ar/`. Pages remain marked `noindex,nofollow` because this is a test.
+
+## Live news, weather and radio test
+
+This isolated test branch includes official YouTube embeds for France 24 English, French and Arabic, BBC News, and Al Jazeera English. The English/French/Arabic/Al Jazeera video IDs were verified against YouTube's public oEmbed title/author response; France 24's official English live page identifies its live YouTube programme. Embedding uses YouTube's own player; viewers may encounter territory, sign-in, bot-check, embed-setting or availability limits. Al Jazeera prompted a sign-in/bot-check in the owner's test. This is not a rebroadcast or a guarantee that every viewer can watch.
+
+A live weather lookup uses Visual Crossing's no-key HTTPS Timeline API directly from the browser, defaults to the clearly labeled sample city Casablanca, allows manual city search, and shows a nearby attribution link. The provider documents free commercial use with attribution, but limits anonymous use and may change thresholds; observe its current terms/fair-use limits.
+
+A radio section is present in-page but deliberately disabled. No station with verified permission for an independent third-party aggregator player was confirmed. Radio France's developer FAQ says it does not authorize its Open API for live-radio aggregation. Activate radio only after obtaining a station's approved embed or explicit license; do not use community directory stream URLs as permission.
+
+The RSS/metadata feeds are not republished here; terms vary and BBC specifically requires a business licence/permission for commercial use of its metadata/RSS. The in-page live news embeds supply news content without copying stories or headlines.
