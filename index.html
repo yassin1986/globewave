@@ -2,22 +2,24 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GlobeWave — live TV, inside the page</title><meta name="description" content="Watch an official live broadcaster player inside GlobeWave, with transparent regional and playback limits.">
+<title>GlobeWave — custom live player</title>
+<meta name="description" content="A GlobeWave custom live player prototype. Playback is enabled only for broadcaster-authorized streams.">
 <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#071116">
 <link rel="stylesheet" href="./assets/player.css">
 </head>
-<body class="">
-<header class="topbar wrap"><a class="brand" href="./index.html" aria-label="GlobeWave"><span class="brand-mark" aria-hidden="true">◉</span><span>Globe<em>Wave</em></span></a><nav class="languages" aria-label="Language"><a aria-current="page" href="./index.html">EN</a><a  href="./fr/index.html">FR</a><a  href="./ar/index.html" lang="ar">ع</a></nav></header>
+<body>
+<header class="topbar wrap"><a class="brand" href="./index.html" aria-label="GlobeWave"><span class="brand-mark" aria-hidden="true">◉</span><span>Globe<em>Wave</em></span></a><nav class="languages" aria-label="Language"><a aria-current="page" href="./index.html">EN</a><a href="./fr/index.html">FR</a><a href="./ar/index.html" lang="ar">ع</a></nav></header>
 <main class="wrap">
-<section class="intro"><div><p class="eyebrow"><span class="live-dot"></span>OFFICIAL LIVE PLAYER · WORLDWIDE</p><h1>The world, <em>live.</em></h1></div><p>Watch an official broadcaster player here. The first prototype focuses on one source whose live page currently uses an embeddable YouTube player.</p></section>
+<section class="intro"><div><p class="eyebrow"><span class="live-dot"></span>GLOBEWAVE PLAYER · TEST</p><h1>Live, <em>your way.</em></h1></div><p>A custom in-site player is ready for authorized HLS streams. No direct stream URL has been supplied or cleared for embedding yet.</p></section>
 <section class="stage" aria-label="Live player">
-<article class="player-card"><div class="player-head"><div class="station"><div class="station-logo" aria-hidden="true">AJ</div><div><h2>AL JAZEERA ENGLISH</h2><small>Qatar · English · News</small></div></div><span class="onair">LIVE</span></div>
-<div class="screen" id="player-frame"><div class="preload" id="player-consent"><div class="play-icon" aria-hidden="true">▶</div><p class="consent">This contacts YouTube. The player is loaded only after you choose to watch.</p><button class="primary" id="load-player" type="button">Load official live player</button></div></div>
-<div class="player-foot"><p>The stream is hosted by YouTube and remains subject to availability, regional restrictions, and the broadcaster’s embed settings. <a href="https://www.aljazeera.com/video/live" target="_blank" rel="noopener noreferrer">Open Al Jazeera’s official live page ↗</a></p></div></article>
-<aside class="side-card"><span class="side-kicker">LIVE CHANNEL</span><h2>AL JAZEERA ENGLISH</h2><p>Official live broadcast · Al Jazeera English</p><a class="official-link" href="https://www.aljazeera.com/video/live" target="_blank" rel="noopener noreferrer">Open Al Jazeera’s official live page ↗</a></aside>
+<article class="player-card"><div class="player-head"><div class="station"><div class="station-logo" aria-hidden="true">GW</div><div><h2>GLOBEWAVE PLAYER</h2><small>HTML5 · HLS-capable · Worldwide test</small></div></div><span class="status-pill" id="live-state">AWAITING SOURCE</span></div>
+<div class="screen" id="player-shell"><video id="video" playsinline preload="none" aria-label="GlobeWave live video"></video><div class="empty-state" id="empty-state"><div class="wave-mark" aria-hidden="true">◉</div><h2 data-i18n="waitingTitle">Ready for an authorized stream</h2><p data-i18n="waitingBody">The player is built, but a broadcaster-approved HLS address is needed before video can start.</p></div><div class="error-state" id="error-state" hidden role="status"></div></div>
+<div class="controls" aria-label="Player controls"><button class="icon-button" id="play-toggle" type="button" disabled aria-label="Play">▶</button><span class="time" id="time-display">LIVE</span><input id="seek" class="seek" type="range" min="0" max="1000" value="1000" disabled aria-label="Seek live stream"><button class="icon-button" id="mute-toggle" type="button" aria-label="Mute">◖</button><input id="volume" class="volume" type="range" min="0" max="1" step="0.05" value="0.8" aria-label="Volume"><button class="icon-button" id="fullscreen" type="button" aria-label="Fullscreen">⛶</button></div>
+<div class="player-foot"><p data-i18n="restriction">This custom player will play only a stream the broadcaster authorizes for embedding. We do not use scraped HLS links or unofficial IPTV lists.</p></div></article>
+<aside class="side-card"><span class="side-kicker" data-i18n="channelLabel">SOURCE STATUS</span><h2 data-i18n="channelTitle">Al Jazeera English</h2><p data-i18n="channelStatus">Its official live page is available, but we do not have a broadcaster-approved direct HLS URL for this custom player.</p><a class="official-link" href="https://www.aljazeera.com/video/live" target="_blank" rel="noopener noreferrer" data-i18n="officialLink">Open Al Jazeera’s official live page ↗</a></aside>
 </section>
-<section class="below"><article class="info"><h3>A live-first prototype</h3><p>One official YouTube live player is prepared here. If playback is blocked in your region or by YouTube, use the broadcaster’s official page.</p></article><article class="info"><h3>Adding more channels</h3><p>Only add a channel when its own embeddable official player is available or written streaming permission is granted. No copied stream links or unofficial IPTV.</p></article></section>
+<section class="below"><article class="info"><h3 data-i18n="howTitle">What works</h3><p data-i18n="howBody">Custom responsive player UI, play/pause, volume, fullscreen and native HLS or hls.js playback once an authorized stream is configured.</p></article><article class="info"><h3 data-i18n="nextTitle">What’s needed for live TV</h3><p data-i18n="nextBody">The broadcaster must supply or approve a direct HLS stream URL for this website, including the countries and embed conditions. An official page or directory entry alone is not that permission.</p></article></section>
 </main>
-<footer class="footer wrap"><span>GlobeWave · EN · FR · العربية</span><span>A prototype, not a rebroadcast service. YouTube and Al Jazeera control their players and availability.</span></footer>
+<footer class="footer wrap"><span>GlobeWave · EN · FR · العربية</span><span data-i18n="footer">Temporary player test, not the deleted directory site or a rebroadcast service.</span></footer>
 <script src="./assets/player.js" defer></script>
 </body></html>

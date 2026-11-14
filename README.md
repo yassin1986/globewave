@@ -1,28 +1,16 @@
-# GlobeWave live-player prototype
+# GlobeWave custom player test
 
-This is a separate, unpublished prototype that replaces the old directory-first landing experience with a player-first page. It includes English, French and Arabic variants and one official source: Al Jazeera English Live.
+This is the temporary player-test branch, not the deleted directory website. The English, French and Arabic pages now use a GlobeWave-styled HTML5 video player with responsive play/pause, volume, live seeking, fullscreen, native HLS support and hls.js fallback.
 
-## Player and source
+## Playback / rights status
 
-The Al Jazeera official live page was opened during preparation and its visible DOM contained an iframe titled “🔴 Al Jazeera English | Live” using YouTube video ID `gCNeDWCI0vo`. The page showed the official live player surface and schedule. The prototype loads the official YouTube embedded player only after the visitor clicks, with autoplay off, a privacy-enhanced YouTube host, an official-channel fallback link, and a referrer policy that preserves the origin needed by YouTube's embedded player.
+No direct HLS stream URL has been supplied or authorized for this website, so the player intentionally has no media source and cannot yet play live TV. `assets/player.js` contains an empty `STREAM_URL` placeholder. Only configure it after the broadcaster supplies or explicitly authorizes a direct HTTPS `.m3u8` URL for GlobeWave, and confirm the permission covers the countries and embedding conditions. Never fill it from IPTV-org, Radio Browser, scraped page requests or another user-submitted directory.
 
-YouTube's official help says videos/playlists can be embedded by using the Share → Embed code, that the embed must run in a webpage context, and that playback can be blocked by age restriction or other availability limits. Source: https://support.google.com/youtube/answer/171780?hl=en .
+The official Al Jazeera live-page link remains available as a fallback: https://www.aljazeera.com/video/live. Its official page/YouTube player does not provide permission for this custom HLS player to use an extracted stream URL. The earlier YouTube embed was replaced in the primary player because it triggered a sign-in/bot verification screen on the owner's phone.
 
-The actual player was not confirmed playing in the test browser: direct top-level navigation to the embed URL returned YouTube Error 153 because an embedded player requires an HTTP Referer; loading Al Jazeera's own page revealed its iframe but the video viewport was blank in the test browser. Therefore this is a real official embed integration, not a verified successful playback claim. Test on the eventual HTTPS deployment before enabling broader promotion.
+## Technical behavior
 
-## Rights and boundaries
-
-- The player uses the broadcaster's official YouTube player; it does not copy a stream URL, strip ads, download, record, proxy or rebroadcast video.
-- YouTube's general embedding instructions do not establish permission to bypass a video owner's embed setting, geographical controls or platform terms. The embed remains subject to the broadcaster's current setting and YouTube availability.
-- No unofficial IPTV playlist, direct HLS URL, or user-submitted stream has been included.
-- Other channels should be added only after their official player is embeddable or written streaming permission is obtained. DW's official terms prohibit full-length content on advertising-funded services without authorization, so DW is deliberately excluded from this ad-compatible prototype.
-- This is a temporary public HTTPS test page explicitly requested by the owner; the old directory-first site remains unpublished. It contains only this one-channel player test, not the full website. Disable this test deployment after playback checking is complete.
-
-## Files
-
-- `index.html`: English player-first page
-- `fr/index.html`: French page
-- `ar/index.html`: Arabic page
-- `assets/player.js`, `assets/player.css`: lazy embed and responsive styling
-
-No automatic source discovery, availability monitoring, live weather/news integration, ads, or app package is implemented.
+- If an authorized stream is configured, Safari/browser-native HLS is used when available; otherwise the page lazily loads the pinned hls.js 1.5.18 library from jsDelivr.
+- The player has a custom responsive interface and native video element, not a YouTube iframe.
+- This static GitHub Pages test does not proxy or rebroadcast media and has no automatic channel checking.
+- Public routes: `/globewave/`, `/globewave/fr/`, `/globewave/ar/`. Pages remain marked `noindex,nofollow` because this is a test.

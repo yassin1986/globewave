@@ -2,22 +2,24 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GlobeWave — بث التلفزة داخل الصفحة</title><meta name="description" content="شاهد مشغّل قناة رسمي داخل GlobeWave مع توضيح قيود التوفر والتشغيل حسب المنطقة.">
+<title>GlobeWave — مشغّل خاص للبث المباشر</title>
+<meta name="description" content="نموذج مشغّل GlobeWave. التشغيل متاح فقط للبث الذي تسمح به القناة للتضمين.">
 <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#071116">
 <link rel="stylesheet" href="../assets/player.css">
 </head>
 <body class="rtl">
-<header class="topbar wrap"><a class="brand" href="../index.html" aria-label="GlobeWave"><span class="brand-mark" aria-hidden="true">◉</span><span>Globe<em>Wave</em></span></a><nav class="languages" aria-label="Language"><a  href="../index.html">EN</a><a  href="../fr/index.html">FR</a><a aria-current="page" href="../ar/index.html" lang="ar">ع</a></nav></header>
+<header class="topbar wrap"><a class="brand" href="../index.html" aria-label="GlobeWave"><span class="brand-mark" aria-hidden="true">◉</span><span>Globe<em>Wave</em></span></a><nav class="languages" aria-label="اللغة"><a href="../index.html">EN</a><a href="../fr/index.html">FR</a><a aria-current="page" href="../ar/index.html" lang="ar">ع</a></nav></header>
 <main class="wrap">
-<section class="intro"><div><p class="eyebrow"><span class="live-dot"></span>مشغّل رسمي مباشر · عالمي</p><h1>العالم، <em>مباشر.</em></h1></div><p>شاهد هنا مشغّلاً رسمياً للقناة. هاد النسخة التجريبية مركّزة على مصدر صفحته المباشرة كتستعمل حالياً مشغّل YouTube قابل للتضمين.</p></section>
-<section class="stage" aria-label="Live player">
-<article class="player-card"><div class="player-head"><div class="station"><div class="station-logo" aria-hidden="true">AJ</div><div><h2>الجزيرة الإنجليزية</h2><small>قطر · الإنجليزية · أخبار</small></div></div><span class="onair">مباشر</span></div>
-<div class="screen" id="player-frame"><div class="preload" id="player-consent"><div class="play-icon" aria-hidden="true">▶</div><p class="consent">هاد الخطوة كتتاصل بـYouTube؛ المشغّل ما كيتحمّلش حتى تختار تشوف.</p><button class="primary" id="load-player" type="button">شغّل المشغّل الرسمي</button></div></div>
-<div class="player-foot"><p>البث مستضاف عند YouTube، والتشغيل تابع للتوفر والقيود الجغرافية وإعدادات التضمين ديال القناة. <a href="https://www.aljazeera.com/video/live" target="_blank" rel="noopener noreferrer">فتح صفحة الجزيرة الرسمية المباشرة ↗</a></p></div></article>
-<aside class="side-card"><span class="side-kicker">قناة مباشرة</span><h2>الجزيرة الإنجليزية</h2><p>بث رسمي مباشر · الجزيرة الإنجليزية</p><a class="official-link" href="https://www.aljazeera.com/video/live" target="_blank" rel="noopener noreferrer">فتح صفحة الجزيرة الرسمية المباشرة ↗</a></aside>
+<section class="intro"><div><p class="eyebrow"><span class="live-dot"></span>مشغّل GLOBEWAVE · تجربة</p><h1>بث مباشر، <em>بطريقتك.</em></h1></div><p>المشغّل الخاص واجد لبث HLS المرخّص. ما توصلناش برابط بث مباشر من القناة ولا بإذن تضمينو فالموقع.</p></section>
+<section class="stage" aria-label="مشغّل البث المباشر">
+<article class="player-card"><div class="player-head"><div class="station"><div class="station-logo" aria-hidden="true">GW</div><div><h2>مشغّل GLOBEWAVE</h2><small>HTML5 · يدعم HLS · تجربة عالمية</small></div></div><span class="status-pill" id="live-state">كنستناو المصدر</span></div>
+<div class="screen" id="player-shell"><video id="video" playsinline preload="none" aria-label="فيديو مباشر عبر GlobeWave"></video><div class="empty-state" id="empty-state"><div class="wave-mark" aria-hidden="true">◉</div><h2 data-i18n="waitingTitle">واجد لبث مسموح به</h2><p data-i18n="waitingBody">المشغّل واجد، ولكن خاصنا رابط HLS تسمح به القناة قبل ما يبدا الفيديو.</p></div><div class="error-state" id="error-state" hidden role="status"></div></div>
+<div class="controls" aria-label="أدوات المشغّل"><button class="icon-button" id="play-toggle" type="button" disabled aria-label="تشغيل">▶</button><span class="time" id="time-display">مباشر</span><input id="seek" class="seek" type="range" min="0" max="1000" value="1000" disabled aria-label="التقديم فالبث"><button class="icon-button" id="mute-toggle" type="button" aria-label="كتم الصوت">◖</button><input id="volume" class="volume" type="range" min="0" max="1" step="0.05" value="0.8" aria-label="الصوت"><button class="icon-button" id="fullscreen" type="button" aria-label="ملء الشاشة">⛶</button></div>
+<div class="player-foot"><p data-i18n="restriction">هاد المشغّل غادي يشغّل غير رابط بث كتسمح به القناة للتضمين. ما كنستعملوش روابط HLS مسحوبة ولا قوائم IPTV غير رسمية.</p></div></article>
+<aside class="side-card"><span class="side-kicker" data-i18n="channelLabel">حالة المصدر</span><h2 data-i18n="channelTitle">الجزيرة الإنجليزية</h2><p data-i18n="channelStatus">صفحتها الرسمية المباشرة موجودة، ولكن ما عندناش رابط HLS مباشر مرخّص لهاذ المشغّل.</p><a class="official-link" href="https://www.aljazeera.com/video/live" target="_blank" rel="noopener noreferrer" data-i18n="officialLink">فتح صفحة الجزيرة الرسمية المباشرة ↗</a></aside>
 </section>
-<section class="below"><article class="info"><h3>نسخة تجريبية للبث المباشر</h3><p>هنا مشغّل YouTube رسمي واحد. إلا منع YouTube البث أو كان محجوب فبلادك، استعمل الصفحة الرسمية ديال القناة.</p></article><article class="info"><h3>إضافة قنوات أخرى</h3><p>ما نضيفو قناة حتى يكون عندها مشغّل رسمي قابل للتضمين أو ترخيص مكتوب للبث. بلا روابط منسوخة ولا IPTV غير رسمي.</p></article></section>
+<section class="below"><article class="info"><h3 data-i18n="howTitle">شنو واجد يخدم</h3><p data-i18n="howBody">واجهة متجاوبة، تشغيل وإيقاف، الصوت وملء الشاشة، ودعم HLS الأصلي أو hls.js ملي يتوفر رابط مرخّص.</p></article><article class="info"><h3 data-i18n="nextTitle">شنو خاص باش تخدم القناة</h3><p data-i18n="nextBody">خاص القناة تعطينا أو ترخّص رابط HLS مباشر لهاد الموقع، مع تحديد البلدان وشروط التضمين. صفحة رسمية أو دليل روابط ما كيعنيش هاد الإذن.</p></article></section>
 </main>
-<footer class="footer wrap"><span>GlobeWave · EN · FR · العربية</span><span>نسخة تجريبية، ماشي خدمة لإعادة البث. YouTube والجزيرة كيتحكمو فالمشغّل والتوفر.</span></footer>
+<footer class="footer wrap"><span>GlobeWave · EN · FR · العربية</span><span data-i18n="footer">اختبار مؤقت للمشغّل؛ ماشي الدليل القديم المحذوف ولا خدمة لإعادة البث.</span></footer>
 <script src="../assets/player.js" defer></script>
 </body></html>
