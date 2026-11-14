@@ -1,20 +1,23 @@
 # GlobeWave
 
-A deployable static, multilingual directory of official global television, radio, news and weather sources. It links visitors to each provider’s own website; it does not embed or rebroadcast streams.
+GlobeWave is a free, static multilingual directory of official global television, radio, news and weather pages. It links visitors to each provider’s own website; it does not embed or rebroadcast streams.
 
-## Deploy (free GitHub Pages)
+## Public website
 
-This build is configured for `https://yassin1986.github.io/globewave/`. Create a public GitHub repository named `globewave`, commit this folder’s contents to its root, then in **Settings → Pages** select **Deploy from a branch**, branch `main`, folder `/ (root)`. GitHub Pages will publish the site at that URL. Do not add a paid plan or domain. If the chosen repository name/account changes, update canonical, hreflang, Open Graph, sitemap, and asset URLs in the HTML/XML before publishing.
+- Live URL: https://yassin1986.github.io/globewave/
+- Source repository: https://github.com/yassin1986/globewave (public)
+- Hosting: GitHub Pages, free tier; no custom domain or paid hosting was purchased.
+- Deployment: GitHub Pages is enabled for the `main` branch root. Push updates to `main` to trigger a deployment.
 
 ## SEO / indexability
 
-- Every locale page includes crawlable source names and explanatory text in initial HTML (no client-only rendering), descriptive title and description, self-canonical, `hreflang` links for English/French/Arabic plus `x-default`, Open Graph tags, robots directive and WebSite JSON-LD.
+- English, French, and Arabic pages provide crawlable directory text in initial HTML (not client-only rendering), distinct titles/descriptions, self-canonicals, `hreflang` including `x-default`, Open Graph metadata, robots directives, and WebSite JSON-LD.
 - `robots.txt` allows crawling and points to `sitemap.xml`; the sitemap lists the root and three localized routes.
-- `assets/site.js` only enhances search and category filtering; content remains present without JavaScript. CSS is responsive, uses visible focus indicators, a skip link, accessible labels and reduced-motion handling.
-- Check after deployment: open `/robots.txt`, `/sitemap.xml`, and each locale URL; verify mobile and keyboard access; add the public site property in Google Search Console, verify domain/property ownership, submit `/sitemap.xml`, then use URL Inspection / Request indexing. Indexing and rankings are controlled by search engines; no ranking position is guaranteed.
+- Search and category filtering enhance static content; cards remain available without JavaScript. Responsive CSS includes a skip link, visible keyboard focus, accessible labels and reduced-motion handling.
+- For Search Console: add the public site/property, complete Google’s ownership verification, submit `https://yassin1986.github.io/globewave/sitemap.xml`, then use URL Inspection / Request indexing. Search visibility and rankings are controlled by search engines; no ranking is guaranteed.
 
-## Content and safety
+## Sources and playback
 
-Directory entries point only to identified official broadcaster/public-service pages. A badge identifies a source page, not a verified currently playing stream. Playback, regional access and programme rights remain with each provider. The site does not perform synchronization, stream availability polling, or rebroadcast. Review source links periodically by human check before calling any player live.
+Entries are curated links to identified official broadcasters/public-service pages; the badge identifies the page type and does not certify that a stream is playing. Playback, regional access and programme rights remain with the provider. GlobeWave does not synchronize, poll stream availability, or rebroadcast. Links require human review before being described as live; availability can change.
 
-The included sources are a curated starter set spanning Europe, Asia, the Middle East, Africa, and global weather services; this is not exhaustive. No ad network is connected.
+This is a starter directory, not an exhaustive list. It does not connect an ad network.
