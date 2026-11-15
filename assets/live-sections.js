@@ -25,6 +25,39 @@
     select.addEventListener('change',()=>setChannel(select.value)); setChannel(select.value);
     document.querySelectorAll('[data-copy]').forEach(el=>{const key=el.dataset.copy;if(t[key])el.textContent=t[key];});
   }
+  const guideSearch=document.querySelector('#guide-search');
+  const guideCards=[...document.querySelectorAll('[data-channel-card]')];
+  const guideFilters=[...document.querySelectorAll('[data-region-filter]')];
+  const guideEmpty=document.querySelector('#guide-empty');
+  let activeRegion='all';
+  const filterGuide=()=>{
+    const query=(guideSearch?.value||'').trim().toLocaleLowerCase();
+    let visible=0;
+    for(const card of guideCards){
+      const matchesRegion=activeRegion==='all'||card.dataset.region===activeRegion;
+      const matchesQuery=!query||card.textContent.toLocaleLowerCase().includes(query);
+      card.hidden=!(matchesRegion&&matchesQuery);
+      if(!card.hidden)visible++;
+    }
+    if(guideEmpty)guideEmpty.hidden=visible!==0;
+  };
+  guideSearch?.addEventListener('input',filterGuide);
+  guideFilters.forEach(button=>button.addEventListener('click',()=>{
+    activeRegion=button.dataset.regionFilter||'all';
+    guideFilters.forEach(item=>{
+      const active=item===button;
+      item.classList.toggle('is-active',active);
+      item.setAttribute('aria-pressed',String(active));
+    });
+    filterGuide();
+  }));
+  document.querySelectorAll('[data-watch-channel]').forEach(button=>button.addEventListener('click',()=>{
+    const key=button.dataset.watchChannel;
+    if(!select||!channels[key])return;
+    select.value=key;
+    select.dispatchEvent(new Event('change',{bubbles:true}));
+    frame?.scrollIntoView({behavior:'smooth',block:'center'});
+  }));
   const form=document.querySelector('#weather-form'), input=document.querySelector('#weather-city'), result=document.querySelector('#weather-result');
   if(!form||!input||!result)return;
   const text=(tag,cls,value)=>{const e=document.createElement(tag);if(cls)e.className=cls;e.textContent=value;return e;};
